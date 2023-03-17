@@ -1,4 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 // Пусть дан список сотрудников:
 // Иван Иванов
@@ -45,6 +51,43 @@ public class task_two {
         list.add("Иван Мечников");
         list.add("Петр Петин");
         list.add("Иван Ежов");
-        System.out.println(list);
+        Collections.sort(list);
+        Map <String, Integer> mapList = new HashMap<>();
+        addMap(mapList, list);
+        sortMap(mapList);
+
+    
+    }
+
+    public static void addMap(Map<String, Integer> dat, ArrayList<String> list){
+        Integer count = 1;
+        for (int i = 0; i < list.size()-1; i++) {
+            String nameLastNameOne = list.get(i);
+            String nameLastNameTwo = list.get(i+1);
+            String[] nameArrOne = nameLastNameOne.split(" ");
+            String[] nameArrTwo = nameLastNameTwo.split(" ");
+            String nameOne = nameArrOne[0];
+            String nameTwo = nameArrTwo[0];  
+            if (nameOne.equals(nameTwo)){
+                count++;
+            }else{
+                dat.put(nameOne, count);
+                count =1;
+            }
+
+        }
+    }
+
+    public static void sortMap(Map<String, Integer> dat){
+        Map<String, Integer> sortedMap = dat.entrySet().stream() 
+        .sorted(Comparator.comparingInt(e -> -e.getValue())) 
+        .collect(Collectors.toMap( 
+        Map.Entry::getKey, 
+        Map.Entry::getValue, 
+        (a, b) -> { throw new AssertionError(); }, 
+        LinkedHashMap::new 
+        )); 
+        
+        sortedMap.entrySet().forEach(System.out::println);  
     }
 }
