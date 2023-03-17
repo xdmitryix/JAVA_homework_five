@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 // Пусть дан список сотрудников:
 // Иван Иванов
 // Светлана Петрова
@@ -24,6 +26,25 @@
 public class task_two {
 
     public static void main(String[] args) {
-        
+        ArrayList <String> list = new ArrayList<>();
+        list.add("Иван Иванов");
+        list.add("Светлана Петрова");
+        list.add("Кристина Белова");
+        list.add("Анна Мусина");
+        list.add("Анна Крутова");
+        list.add("Иван Юрин");
+        list.add("Петр Лыков");
+        list.add("Павел Чернов");
+        list.add("Петр Чернышов");
+        list.add("Мария Федорова");
+        list.add("Марина Светлова");
+        list.add("Мария Савина");
+        list.add("Мария Рыкова");
+        list.add("Марина Лугова");
+        list.add("Анна Владимирова");
+        list.add("Иван Мечников");
+        list.add("Петр Петин");
+        list.add("Иван Ежов");
+        System.out.println(list);
     }
 }
