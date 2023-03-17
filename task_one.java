@@ -4,13 +4,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+// Реализуйте структуру телефонной книги с помощью HashMap, учитывая, что 1 человек может иметь несколько телефонов.
+// Добавить функции: 
+// 1) Добавление номера
+// 2) Вывод всего
+
 public class task_one {
 
     public static void main(String[] args) {
         Scanner iScanner = new Scanner(System.in);
         Map<String, List<String>> data = new HashMap<>();
         while (true) {
-            System.out.println("введите команду: 1 - добавление контакта. 2 - Вывод всех контактов");
+            System.out.println("введите команду: 1 - добавление контакта. 2 - Вывод всех контактов.");
             String command = iScanner.nextLine();
             if (command.equals("1")){
                 addData(data);
